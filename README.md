@@ -26,8 +26,6 @@ And add it to your playbook's roles:
     - role: nvidia-container
       become: yes
 ```
-
-This role comes preloaded with multiple available defaults. You can override each one in your hosts/group vars, in your inventory, or in your play. See the annotated defaults in defaults/main.yml for help in configuration.
       
 License
 -------
