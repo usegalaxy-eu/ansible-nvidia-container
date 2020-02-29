@@ -3,17 +3,18 @@
 
 - name: Collect distribution detail
   set_fact:
-     distribution: "{{ ansible_distribution }}{{ ansible_distribution_version }}"
+     distribution: "{{ ansible_distribution | lower }}{{ ansible_distribution_major_version }}"
 
 - name: Add repository
-  yum_repository:
-    name: nvidia-container
-    description: NVIDIA Container toolkit repo
-    baseurl: "https://nvidia.github.io/nvidia-docker/{{ distribution }}/nvidia-docker.repo"
+  get_url:
+    url: "https://nvidia.github.io/nvidia-docker/{{ distribution }}/nvidia-docker.repo"
+    dest: /etc/yum.repos.d/nvidia-container.repo
+    mode: '0640'
 
 - name: install the latest version of the NVIDIA Container Toolkit
   yum:
     name: nvidia-container-toolkit
     state: latest
+    update_cache: true
   notify:
     - restart docker
