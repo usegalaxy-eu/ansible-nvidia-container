@@ -9,7 +9,7 @@
   get_url:
     url: "https://nvidia.github.io/nvidia-docker/{{ distribution }}/nvidia-docker.repo"
     dest: /etc/yum.repos.d/nvidia-container.repo
-    mode: '0640'
+    mode: '0644'
 
 - name: install the latest version of the NVIDIA Container Toolkit
   yum:
