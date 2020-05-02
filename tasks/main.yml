@@ -16,5 +16,6 @@
     name: nvidia-container-toolkit
     state: latest
     update_cache: true
+  when: install_nvidia_container | bool
   notify:
     - restart docker
