@@ -3,7 +3,7 @@
 
 - name: Collect distribution detail
   set_fact:
-     distribution: "{{ ansible_distribution | lower }}{{ ansible_distribution_major_version }}"
+    distribution: "{{ ansible_distribution | lower }}{{ ansible_distribution_major_version }}"
   when: ansible_os_family != "RedHat"
 
 # see https://github.com/NVIDIA/nvidia-docker/issues/1511
