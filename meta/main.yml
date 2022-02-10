@@ -1,6 +1,6 @@
 ---
 galaxy_info:
-  role_name: nvidia-container
+  role_name: nvidia_container
   author: Gianmauro Cuccuru
   description: Install the NVIDIA Container toolkit
   company: Galaxy Project Europe
