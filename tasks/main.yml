@@ -1,6 +1,6 @@
 ---
 # https://github.com/NVIDIA/nvidia-docker
-- name: Install the NVIDIA Container toolkit
+- name: Setting up for the NVIDIA Container toolkit
   block:
     - name: Collect distribution detail
       set_fact:
@@ -19,11 +19,11 @@
         dest: /etc/yum.repos.d/nvidia-container.repo
         mode: '0644'
 
-    - name: install the latest version of the NVIDIA Container Toolkit
-      yum:
-        name: nvidia-container-toolkit
-        state: latest
-        update_cache: true
-      notify:
-        - restart docker
+- name: install the latest version of the NVIDIA Container Toolkit
+  yum:
+    name: nvidia-container-toolkit
+    state: latest
+    update_cache: true
+  notify:
+    - restart docker
   when: install_nvidia_container | bool
