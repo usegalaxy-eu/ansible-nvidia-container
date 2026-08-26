@@ -28,10 +28,10 @@
     update_cache: true
   when: install_nvidia_container | bool
 
- - name: Configure Docker runtime for NVIDIA
-    ansible.builtin.command:
-      cmd: nvidia-ctk runtime configure --runtime=docker
-    register: nvidia_ctk_runtime
-    notify:
-      - restart docker
-    changed_when: nvidia_ctk_runtime.rc == 0
+- name: Configure Docker runtime for NVIDIA
+  ansible.builtin.command:
+    cmd: nvidia-ctk runtime configure --runtime=docker
+  register: nvidia_ctk_runtime
+  notify:
+    - restart docker
+  changed_when: nvidia_ctk_runtime.rc == 0
